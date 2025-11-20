@@ -1,0 +1,10 @@
+# Cache files
+cache/*.cache
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+*.swp
+*.swo
