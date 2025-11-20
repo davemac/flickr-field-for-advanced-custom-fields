@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Advanced Custom Fields: Flickr
-Plugin URI: https://github.com/phuisman88/flickrfield
+Plugin URI: https://github.com/davemac/flickr-field-for-advanced-custom-fields
 Description: Flickr field for Advanced Custom Fields. Display items from a Flickr photostream or entire sets/galleries along with WordPress content.
-Version: 1.1.4
-Author: Paul Huisman
-Author URI: www.paulhuisman.com
+Version: 2.0.0
+Author: davemac
+Author URI: https://dmcweb.com.au
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
