@@ -7,13 +7,13 @@ Stable tag: 1.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Display items from your Flickr photostream or entire sets/galleries along with your WordPress content.
+Display items from a Flickr photostream or entire sets/galleries along with WordPress content.
 
 == Description ==
 
-The Flickr Field will grant you the ability to include photos, sets and galleries from your Flickr account. After selecting which image formats you wish to use the plugin will generate the flickr image urls. This plugin is an add-on for the Advanced Custom Fields WordPress plugin (v4 and v5).
+The Flickr Field provides the ability to include photos, sets and galleries from a Flickr account. After selecting which image formats to use, the plugin will generate the Flickr image URLs. This plugin is an add-on for the Advanced Custom Fields WordPress plugin (v4 and v5).
 
-This plugins also grants you the ability to enable "Private Mode". Here you have to authenticate your account and generate a token which you can use to access your own private pictures. These private pictures are not available for the public on your Flickr.com account.
+The plugin also provides "Private Mode". This requires authenticating the Flickr account and generating a token to access private pictures that are not publicly available on Flickr.com.
 
 See the installation and/or screenshots tab for more info.
 
@@ -53,7 +53,7 @@ Usage Example (in PHP):
 
 1. Setting up the field
 2. Selecting a photo set
-3. Selecting individual photos from your photostream
+3. Selecting individual photos from a photostream
 
 == Changelog ==
 
@@ -73,7 +73,7 @@ Usage Example (in PHP):
 * Added Private Mode - you can now enable a mode where you can display private photos from Flickr (those that are not publicly available)
 
 = 1.0.8 =
-* Added possibility to set your own cache dir location with constant FLICKR_FIELD_CACHE_DIR
+* Added possibility to set a custom cache directory location with constant FLICKR_FIELD_CACHE_DIR
 
 = 1.0.7 =
 * Added feature so that you can control the amount of images that will be loaded in a photoset

@@ -2,7 +2,7 @@
 /*
 Plugin Name: Advanced Custom Fields: Flickr
 Plugin URI: https://github.com/phuisman88/flickrfield
-Description: Flickr field for Advanced Custom Fields. Display items from your photostream or entire sets/galleries along with your WordPress content.
+Description: Flickr field for Advanced Custom Fields. Display items from a Flickr photostream or entire sets/galleries along with WordPress content.
 Version: 1.1.4
 Author: Paul Huisman
 Author URI: www.paulhuisman.com

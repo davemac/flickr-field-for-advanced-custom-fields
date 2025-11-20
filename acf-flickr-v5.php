@@ -677,7 +677,7 @@ class acf_field_flickr extends acf_field {
 			// Decode JSON format that is used in the database
 			$value['items'] = json_decode($value['items']);
 
-			// Initialize a new phpFlickr object based on your api key
+			// Initialize a new phpFlickr object based on the api key
 			require_once(dirname(__FILE__) . '/phpflickr/phpFlickr.php');
 
 			// Check constants
