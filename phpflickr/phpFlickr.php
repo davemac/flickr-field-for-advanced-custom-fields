@@ -38,12 +38,14 @@ if ( !class_exists('phpFlickr') ) {
 		var $cache_dir = null;
 		var $cache_expire = null;
 		var $cache_key = null;
+		var $cache_request = null;
 		var $last_request = null;
 		var $die_on_error;
 		var $error_code;
-		Var $error_msg;
+		var $error_msg;
 		var $token;
 		var $php_version;
+		var $service = 'flickr';
 		var $custom_post = null, $custom_cache_get = null, $custom_cache_set = null;
 
 		/*
@@ -64,7 +66,6 @@ if ( !class_exists('phpFlickr') ) {
 			$this->api_key = $api_key;
 			$this->secret = $secret;
 			$this->die_on_error = $die_on_error;
-			$this->service = "flickr";
 
 			//Find the PHP version and store it for future reference
 			$this->php_version = explode("-", phpversion());
