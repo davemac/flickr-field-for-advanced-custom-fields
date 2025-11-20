@@ -2,6 +2,8 @@
 
 Display items from a Flickr photostream or entire sets/galleries along with WordPress content.
 
+This is a maintained fork of the now obsolete [wp-plugins/flickr-field-for-advanced-custom-fields](https://github.com/wp-plugins/flickr-field-for-advanced-custom-fields), updated for modern PHP versions and ACF compatibility.
+
 ## Features
 
 - Display photos from Flickr photostreams or photosets
