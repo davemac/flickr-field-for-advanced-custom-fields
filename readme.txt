@@ -1,9 +1,9 @@
 === Flickr field for Advanced Custom Fields ===
-Contributors: phuisman
+Contributors: davemac
 Tags: flickr, acf, custom, fields, photostream, photosets
-Requires at least: 3.0.1
-Tested up to: 4.9.5
-Stable tag: 1.1.4
+Requires at least: 5.0
+Tested up to: 6.7
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -11,25 +11,23 @@ Display items from a Flickr photostream or entire sets/galleries along with Word
 
 == Description ==
 
-The Flickr Field provides the ability to include photos, sets and galleries from a Flickr account. After selecting which image formats to use, the plugin will generate the Flickr image URLs. This plugin is an add-on for the Advanced Custom Fields WordPress plugin (v4 and v5).
+This is a maintained fork of the now obsolete [flickr-field-for-advanced-custom-fields](https://github.com/wp-plugins/flickr-field-for-advanced-custom-fields), updated for modern PHP versions and ACF compatibility.
+
+The Flickr Field provides the ability to include photos, sets and galleries from a Flickr account. After selecting which image formats to use, the plugin will generate the Flickr image URLs. This plugin is an add-on for the Advanced Custom Fields WordPress plugin.
 
 The plugin also provides "Private Mode". This requires authenticating the Flickr account and generating a token to access private pictures that are not publicly available on Flickr.com.
 
-See the installation and/or screenshots tab for more info.
-
-Looking for a clean and very easy to setup lightbox? I recommend Easy Fancybox: http://wordpress.org/plugins/easy-fancybox/
-
 == Installation ==
 
-1. Make sure you have Advanced Custom Fields **v4** or **v5** installed. Get it at http://www.advancedcustomfields.com/.
-2. Upload the `flickr field` directory to the `/wp-content/plugins/` directory
-3. Activate the plugin through the 'Plugins' menu in WordPress
+1. Ensure Advanced Custom Fields v5 or later is installed
+2. Upload the plugin to `/wp-content/plugins/`
+3. Activate the plugin through the Plugins menu in WordPress
 
-Usage Example (in PHP):
+== Usage ==
 
 **Getting the contents of a photostream and looping through the results**
 
-	$flickr_photostream = get_field(FIELD_NAME);
+	$flickr_photostream = get_field('field_name');
 
 	if (isset($flickr_photostream['items'])) {
 		foreach ($flickr_photostream['items'] as $id => $photo) {
@@ -39,7 +37,7 @@ Usage Example (in PHP):
 
 **Getting the contents of a set and looping through the results**
 
-	$flickr_set = get_field(FIELD_NAME);
+	$flickr_set = get_field('field_name');
 
 	if (isset($flickr_set['items'])) {
 		foreach ($flickr_set['items'] as $id => $photos) {
@@ -57,44 +55,13 @@ Usage Example (in PHP):
 
 == Changelog ==
 
-= 1.1.4 =
-* Fixed plugin so that sets work yet again.
-
-= 1.1.3 =
-* Updated phpFlickr class and disabled sets/galleries temporarily because they fail to work with Flickr api changes
-
-= 1.1.2 =
-* Added seperate caching for the admin loading of flickr data. You now have a setting for front-end caching and admin (back-end) caching.
-
-= 1.1.1 =
-* You can now (optionally) use constants for flickr api key, secret and api token (for private mode). This could be useful in a multisite environment.
-
-= 1.1.0 =
-* Added Private Mode - you can now enable a mode where you can display private photos from Flickr (those that are not publicly available)
-
-= 1.0.8 =
-* Added possibility to set a custom cache directory location with constant FLICKR_FIELD_CACHE_DIR
-
-= 1.0.7 =
-* Added feature so that you can control the amount of images that will be loaded in a photoset
-
-= 1.0.6 =
-* Small bugfix to get rid of notification
-
-= 1.0.5 =
-* Added feature to limit the maximum selectable amount of sets/photos
-
-= 1.0.4 =
-* Added possibility to display original format of the photo
-
-= 1.0.3 =
-* Fixed a bug where you could not deselect the flickr item and save correctly
-
-= 1.0.2 =
-* Fixed a bug where you could not include two flickr fields on the same post
-
-= 1.0.1 =
-* Updated Flickr Field to work with ACF5 most recent API changes
-
-= 1.0.0 =
-* First version of the plugin.
+= 2.0.0 =
+* Forked from obsolete wp-plugins repository
+* Added error handling to prevent caching of failed API responses
+* API errors are now logged to debug.log when WP_DEBUG is enabled
+* Failed photosets are skipped gracefully instead of causing PHP errors
+* Only successful API responses are cached
+* Fixed JavaScript ReferenceError in flickr-acf5.js
+* Fixed PHP TypeError by ensuring $items is always an array
+* Updated for modern PHP compatibility
+* Updated documentation for public release
