@@ -708,7 +708,7 @@ if ( !class_exists('phpFlickr') ) {
 			return $this->call('flickr.blogs.getServices', array());
 		}
 
-		function blogs_postPhoto ($blog_id = NULL, $photo_id, $title, $description, $blog_password = NULL, $service = NULL) {
+		function blogs_postPhoto ($photo_id, $title, $description, $blog_id = NULL, $blog_password = NULL, $service = NULL) {
 			/* https://www.flickr.com/services/api/flickr.blogs.postPhoto.html */
 			return $this->call('flickr.blogs.postPhoto', array('blog_id' => $blog_id, 'photo_id' => $photo_id, 'title' => $title, 'description' => $description, 'blog_password' => $blog_password, 'service' => $service));
 		}
