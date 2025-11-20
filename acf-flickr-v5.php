@@ -677,7 +677,7 @@ class acf_field_flickr extends acf_field {
 			// Decode JSON format that is used in the database
 			$value['items'] = json_decode($value['items']);
 
-			// Initialize a new phpFlickr object based on your api key
+			// Initialize a new phpFlickr object based on the api key
 			require_once(dirname(__FILE__) . '/phpflickr/phpFlickr.php');
 
 			// Check constants
@@ -731,6 +731,15 @@ class acf_field_flickr extends acf_field {
 						$photos = $f->galleries_getPhotos($id, 'url_o', $value['flickr_show_limit']);
 						$name = 'photos';
 					}
+
+					// Check if API call failed
+					if ($photos === false || !isset($photos[$name]['photo'])) {
+						if (defined('WP_DEBUG') && WP_DEBUG) {
+							error_log('Flickr ACF: API call failed for ' . $value['type'] . ' ID ' . $id . '. Error: ' . $f->getErrorMsg());
+						}
+						continue; // Skip this set/gallery and move to next
+					}
+
 					// Loop through all photos and create a thumb and large url
 					foreach ($photos[$name]['photo'] as $photo) {
 						$sets[$id][$photo['id']]['title']    = $photo['title'];

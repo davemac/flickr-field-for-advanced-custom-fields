@@ -300,7 +300,7 @@ if ( !class_exists('phpFlickr') ) {
 					$args['api_sig'] = $api_sig;
 				}
 				$this->response = $this->post($args);
-				$this->cache($args, $this->response);
+				$should_cache = true; // Will be set to false if response is an error
 			}
 
 
@@ -317,11 +317,18 @@ if ( !class_exists('phpFlickr') ) {
 					$this->error_code = $this->parsed_response['code'];
 					$this->error_msg = $this->parsed_response['message'];
 					$this->parsed_response = false;
+					$should_cache = false; // Don't cache error responses
 				}
 			} else {
 				$this->error_code = false;
 				$this->error_msg = false;
 			}
+
+			// Only cache successful responses
+			if (isset($should_cache) && $should_cache) {
+				$this->cache($args, $this->response);
+			}
+
 			return $this->response;
 		}
 
